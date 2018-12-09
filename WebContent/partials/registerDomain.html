@@ -1,0 +1,70 @@
+<div class="row">
+	<div class="col-md-4"></div>
+	<div class="col-md-4 bordering">
+		<div ng-init="getDomainPlans()">
+			<h3>Register For Domain</h3>
+			<form ng-submit="domainForm.submitTheForm()">
+				<div class="form-group">
+					<label>Domain Name</label> 
+					<input type="text" class="form-control" ng-model="domainForm.domainName" minlength="4" required="required"/>
+				</div>
+
+				<div class="form-group">
+					<label>Domain Extension</label><br /> 
+					<label class="radio-inline"> 
+						<input type="radio" ng-model="domainForm.domainExtension" ng-value="'.in'" name="domainExtension" required="required"/>
+						.in
+					</label> 
+					<label class="radio-inline"> 
+						<input type="radio" ng-model="domainForm.domainExtension" ng-value="'.com'" name="domainExtension" required="required"/>
+						.com
+					</label> 
+					<label class="radio-inline"> 
+						<input type="radio" ng-model="domainForm.domainExtension" ng-value="'.org'" name="domainExtension" required="required"/>
+						.org
+					</label> 
+					<label class="radio-inline"> 
+						<input type="radio" ng-model="domainForm.domainExtension" ng-value="'.net'" name="domainExtension" required="required"/>
+						.net
+					</label> 
+				</div>
+
+				<div ng-show="domainForm.domainExtension">You have selected the domain extension {{domainForm.domainExtension | DomainFilter}}</div>
+
+				<div class="form-group">
+					<label>Customer Name</label> 
+					<input type="text" class="form-control" ng-model="domainForm.customerName" minlength="5" maxlength="8" required="required"/>
+				</div>
+
+				<div class="form-group">
+					<label>Duration In Months</label> 
+					<input type="number" class="form-control" ng-model="domainForm.duration" min="1" max="12" required="required"
+						onblur="setCustomValidity('')" oninvalid="setCustomValidity('Custom Message: Invalid duration.')"/>
+				</div>
+
+				<div class="form-group">
+					<label>Select A Plan</label> 
+					<select class="form-control" ng-model="domainForm.plan" required="required">
+						<option value="">--Select--</option>
+						<option ng-repeat="item in plansList" ng-value="item" name="plansList">{{item}}</option>
+					</select>
+				</div>
+
+
+				<div class="form-group">
+					<label><input type="checkbox" ng-model="domainForm.adsRequired">
+					Free Ads
+					</label>
+				</div>
+
+				<div ng-show="domainForm.adsRequired">You have opted for free ads {{domainForm.customerName}}</div>
+
+				<input type="submit" class="btn btn-primary" value="Submit">
+
+			</form>
+			<br />
+			<div ng-bind="domainForm.message"></div>
+		</div>
+	</div>
+	<div class="col-md-4"></div>
+</div>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>  
+<head> 
+<meta charset="ISO-8859-1">
+<title>Pschorr Web Hosting Services</title>
+<!-- ******************************************************** -->
+<script src="js/shared/jquery.js"></script>
+<script src="js/shared/bootstrap.js"></script>
+<script src="js/shared/angular.js"></script>
+<script src="js/shared/angular-route.js"></script>
+<script src="js/user/Properties.js"></script>
+<script src="js/user/Application.js"></script>
+<script src="js/user/Controller.js"></script>
+<!-- ******************************************************** -->
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/styling.css">
+</head>
+<!-- Don't touch code before this line -->
+<body ng-app="Application">
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+        			<span class="icon-bar"></span>
+        			<span class="icon-bar"></span>
+        			<span class="icon-bar"></span> 
+      			</button>
+				<a class="navbar-brand" href="#">Pschorr Web Hosting Services</a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="nav navbar-nav">
+					<li><a href="#/register">Domain Registration</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+<!-- Don't touch code after this line -->
+	<div class="container-fluid">
+		<div class="text-center">
+			<div ng-view="myView"></div>
+		</div>
+	</div>
+</body>
+</html>
